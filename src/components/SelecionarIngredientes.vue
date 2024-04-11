@@ -1,6 +1,7 @@
 <script lang="ts">
 import { getCategorias } from '@/http';
 import { defineComponent } from 'vue';
+import CardCategoria from '@/components/CardCategoria.vue';
 import type Categoria from '@/interfaces/ICategoria';
 
 
@@ -13,6 +14,9 @@ export default defineComponent({
   },
   async created() {
     this.categorias = await getCategorias();
+  },
+  components: {
+    CardCategoria
   }
 });
 </script>
@@ -26,9 +30,8 @@ export default defineComponent({
     </p>
 
     <ul class="categorias">
-      <li v-for="macroIngrediente in categorias" :key="macroIngrediente.rotulo">
-        {{ macroIngrediente.nome }}
-        {{ macroIngrediente.ingredientes }}
+      <li v-for="categoria in categorias" :key="categoria.nome">
+        <card-categoria :categoria="categoria" />
       </li>
     </ul>
 

@@ -8,7 +8,7 @@ export default defineComponent({
 <template>
   <header class="banner">
     <div class="apresentacao">
-      <img src="@/assets/imagens/logo.svg" alt="Logo Cookin' Up" class="logo">
+      <img src="/public/imagens/logo.svg" alt="Logo Cookin' Up" class="logo">
       <p class="cabecalho-lg frase-cabecalho">
         <span class="texto-verde">Um banquete de ideias para</span>
         despertar o chef que há em você!
@@ -16,7 +16,7 @@ export default defineComponent({
       <p class="substituto-lg">Explore novas receitas todos os dias com os ingredientes que estão ao seu alcance!</p>
     </div>
 
-    <img src="@/assets/imagens/foto-banner.png" alt="Foto de uma mulher sorrindo cozinhando com uma bacia de vidro."
+    <img src="/public/imagens/foto-banner.png" alt="Foto de uma mulher sorrindo cozinhando com uma bacia de vidro."
       class="foto-banner">
   </header>
 </template>
