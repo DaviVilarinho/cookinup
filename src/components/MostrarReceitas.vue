@@ -9,7 +9,6 @@ export default defineComponent({
   data() {
     return {
       receitas: Array<Receita>(),
-      receitasEncontradas: Array<Receita>(),
     };
   },
   props: {
@@ -20,7 +19,11 @@ export default defineComponent({
   },
   async created() {
     this.receitas = await getReceitas();
-    this.filtrarReceitas();
+  },
+  computed: {
+    receitasEncontradas() {
+      return this.filtrarReceitas();
+    }
   },
   components: {
     CardReceita
@@ -35,15 +38,19 @@ export default defineComponent({
       return true;
     },
     filtrarReceitas() {
-      this.receitasEncontradas = this.receitas.filter(receita => this.isReceitaAceitavel(receita));
+      return this.receitas.filter(receita => this.isReceitaAceitavel(receita));
     }
   },
 });
 </script>
 
 <template>
-  <section class="selecionar-ingredientes">
+  <section class="mostrar-receitas">
     <h1 class="cabecalho titulo-receitas">Receitas</h1>
+
+    <p class="paragrafo-lg resultados-encontrados">
+      Resultados encontrados: {{ receitasEncontradas.length }}
+    </p>
 
     <div v-if="receitasEncontradas.length > 0" class="receitas-wrapper">
       <p class="paragrafo-lg informacoes">

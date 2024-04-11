@@ -16,10 +16,14 @@ export default {
 <template>
   <article class="receita">
     <header class="receita__cabecalho">
-      <img class="receita__imagem" :src="`/public/imagens/receitas/${receita.imagem}`"
-        :alt="'Foto de como ficou o prato: ' + receita.nome">
-      <h2 class="paragrafo-lg receita__corpo">{{ receita.nome }}</h2>
+      <img class="receita__imagem" :src="`/public/imagens/receitas/${receita.imagem}`" :alt="`Foto de ${receita.nome}`">
     </header>
+
+    <section class="receita__corpo">
+      <h2 class="paragrafo receita__nome">
+        {{ receita.nome }}
+      </h2>
+    </section>
   </article>
 </template>
 
@@ -35,26 +39,6 @@ export default {
   box-shadow: 4px 4px 12px 0px rgba(68, 68, 68, 0.08);
 }
 
-.receita__cabecalho {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.receita__nome {
-  text-align: center;
-  color: var(--verde-medio, #3D6D4A);
-  font-weight: 700;
-}
-
-.receita__ingredientes {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
 .receita__corpo {
   padding: 2rem 1rem;
 }
@@ -63,5 +47,10 @@ export default {
   width: 100%;
   border-radius: 1rem 1rem 0rem 0rem;
   display: block;
+}
+
+.receita__nome {
+  font-weight: 700;
+  color: var(--cinza, #444);
 }
 </style>
