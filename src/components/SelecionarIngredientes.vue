@@ -42,7 +42,6 @@ export default defineComponent({
     </ul>
 
     <p class="paragrafo dica">*Atenção: consideramos que você tem em casa sal, pimenta e água.</p>
-    <botao-principal>Buscar Receitas!</botao-principal>
   </section>
 </template>
 
