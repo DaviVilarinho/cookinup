@@ -18,24 +18,21 @@ export default {
     <header class="receita__cabecalho">
       <img class="receita__imagem" :src="`/public/imagens/receitas/${receita.imagem}`"
         :alt="'Foto de como ficou o prato: ' + receita.nome">
-      <h2 class="paragrafo-lg receita__nome">{{ receita.nome }}</h2>
+      <h2 class="paragrafo-lg receita__corpo">{{ receita.nome }}</h2>
     </header>
   </article>
 </template>
 
 <style scoped>
 .receita {
-  width: 19.5rem;
-  padding: 1rem;
-  border-radius: 1rem;
-  background: var(--branco, #FFF);
-  box-shadow: 4px 4px 10px 0px rgba(68, 68, 68, 0.05);
-  height: 100%;
-
   display: flex;
+  width: 17.625rem;
+  max-width: 19.5rem;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  border-radius: 1rem;
+  background: var(--Branco, #FFF);
+  box-shadow: 4px 4px 12px 0px rgba(68, 68, 68, 0.08);
 }
 
 .receita__cabecalho {
@@ -43,10 +40,6 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-}
-
-.receita__imagem {
-  width: 3.5rem;
 }
 
 .receita__nome {
@@ -60,5 +53,15 @@ export default {
   justify-content: center;
   gap: 0.5rem;
   flex-wrap: wrap;
+}
+
+.receita__corpo {
+  padding: 2rem 1rem;
+}
+
+.receita__imagem {
+  width: 100%;
+  border-radius: 1rem 1rem 0rem 0rem;
+  display: block;
 }
 </style>
