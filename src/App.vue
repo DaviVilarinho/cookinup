@@ -1,14 +1,16 @@
 <script lang="ts">
 import CookinBanner from './components/CookinBanner.vue';
+import ConteudoPrincipal from './components/ConteudoPrincipal.vue';
 
 export default {
   name: "App",
   components: {
-    CookinBanner
+    CookinBanner, ConteudoPrincipal
   }
 }
 </script>
 
 <template>
-  <cookin-banner></cookin-banner>
+  <cookin-banner />
+  <conteudo-principal />
 </template>
