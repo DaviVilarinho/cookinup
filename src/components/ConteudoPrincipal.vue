@@ -21,7 +21,7 @@ export default {
 
     <ul v-if="ingredientes.length > 0" class="ingredientes-sua-lista">
       <li v-for="ingrediente in ingredientes" :key="ingrediente">
-        <select-tag>{{ ingrediente }}</select-tag>
+        <select-tag :active="true">{{ ingrediente }}</select-tag>
       </li>
     </ul>
     <p v-else class="paragrafo lista-vazia">

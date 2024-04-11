@@ -1,12 +1,18 @@
 <template>
-  <span class="tag">
+  <span class="tag" :class="['tag', { active }]">
     <slot></slot>
   </span>
 </template>
 
 <script lang="ts">
 export default {
-  name: 'SelectTag'
+  name: 'SelectTag',
+  props: {
+    active: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
 
@@ -18,6 +24,11 @@ export default {
   padding: 0.5rem;
   text-align: center;
   transition: 0.2s;
+  color: var(--cinza);
+  background: var(--cinza-claro);
+}
+
+.tag.active {
   color: var(--creme, #FFFAF3);
   background: var(--coral, #F0633C);
   font-weight: 700;

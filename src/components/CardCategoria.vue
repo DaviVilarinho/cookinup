@@ -23,7 +23,7 @@ export default {
     </header>
     <ul class="categoria__ingredientes">
       <li v-for="ingrediente in categoria.ingredientes" :key="ingrediente">
-        <select-tag>{{ ingrediente }}</select-tag>
+        <select-tag :active="false">{{ ingrediente }}</select-tag>
       </li>
     </ul>
   </article>
