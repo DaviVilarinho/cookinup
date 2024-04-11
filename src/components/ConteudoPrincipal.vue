@@ -1,15 +1,18 @@
 <script lang="ts">
 import BotaoPrincipal from './BotaoPrincipal.vue';
+import MostrarReceitas from './MostrarReceitas.vue';
 import SelecionarIngredientes from './SelecionarIngredientes.vue';
 import SelectTag from './SelectTag.vue';
 
+type PageContent = 'SelecionarIngredientes' | 'MostrarReceitas'
+
 export default {
   name: 'ConteudoPrincipal',
-  components: { SelectTag, SelecionarIngredientes, BotaoPrincipal },
+  components: { SelectTag, SelecionarIngredientes, BotaoPrincipal, MostrarReceitas },
   data() {
     return {
       ingredientes: new Set<string>(),
-      pageContent: 'SelecionarIngredientes' as 'SelecionarIngredientes' | 'MostrarReceitas',
+      pageContent: 'SelecionarIngredientes' as PageContent,
     };
   },
   computed: {
@@ -41,8 +44,10 @@ export default {
       Sua lista está vazia, selecione os ingredientes disponíveis para iniciar.
     </p>
 
-    <selecionar-ingredientes v-if="pageContent === 'SelecionarIngredientes'"
+    <selecionar-ingredientes v-show="pageContent === 'SelecionarIngredientes'"
       @ingrediente-selecionado="ingredientes.add($event)" @ingrediente-removido="ingredientes.delete($event)" />
+    <mostrar-receitas v-show="pageContent === 'MostrarReceitas'" :ingredientesAceitos="ingredientes">
+    </mostrar-receitas>
 
     <botao-principal @click="toggleContent">{{ textActionButton }}</botao-principal>
   </main>
