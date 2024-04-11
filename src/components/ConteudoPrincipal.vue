@@ -1,9 +1,10 @@
 <script lang="ts">
 import SelecionarIngredientes from '@/components/SelecionarIngredientes.vue';
+import SelectTag from './SelectTag.vue';
 
 export default {
   name: 'ConteudoPrincipal',
-  components: { SelecionarIngredientes },
+  components: { SelecionarIngredientes, SelectTag },
   data() {
     return {
       ingredientes: ['Alho', 'Manteiga', 'Óregano', 'Pão', 'Tomilho', 'Limão']
@@ -19,8 +20,8 @@ export default {
     </section>
 
     <ul v-if="ingredientes.length > 0" class="ingredientes-sua-lista">
-      <li v-for="ingrediente in ingredientes" class="ingrediente" :key="ingrediente">
-        {{ ingrediente }}
+      <li v-for="ingrediente in ingredientes" :key="ingrediente">
+        <select-tag>{{ ingrediente }}</select-tag>
       </li>
     </ul>
     <p v-else class="paragrafo lista-vazia">
@@ -57,18 +58,6 @@ export default {
   justify-content: center;
   gap: 1rem 1.5rem;
   flex-wrap: wrap;
-}
-
-.ingrediente {
-  display: inline-block;
-  border-radius: 0.5rem;
-  min-width: 4.25rem;
-  padding: 0.5rem;
-  text-align: center;
-  transition: 0.2s;
-  color: var(--creme, #FFFAF3);
-  background: var(--coral, #F0633C);
-  font-weight: 700;
 }
 
 .lista-vazia {

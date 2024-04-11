@@ -1,6 +1,7 @@
 <script lang="ts">
 import type Categoria from '@/interfaces/ICategoria';
 import type { PropType } from 'vue';
+import SelectTag from './SelectTag.vue';
 export default {
   name: 'CardCategoria',
   props: {
@@ -8,7 +9,8 @@ export default {
       type: Object as PropType<Categoria>,
       required: true
     },
-  }
+  },
+  components: { SelectTag }
 }
 </script>
 
@@ -21,7 +23,7 @@ export default {
     </header>
     <ul class="categoria__ingredientes">
       <li v-for="ingrediente in categoria.ingredientes" :key="ingrediente">
-        <p>{{ ingrediente }}</p>
+        <select-tag>{{ ingrediente }}</select-tag>
       </li>
     </ul>
   </article>
