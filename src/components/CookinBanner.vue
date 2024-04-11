@@ -1,7 +1,9 @@
-<script>
-export default {
-  name: 'CookinBanner'
-}
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'CookinBanner',
+});
 </script>
 <template>
   <header class="banner">
