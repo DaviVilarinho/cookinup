@@ -1,5 +1,5 @@
 <template>
-  <button @click.prevent="selected = !selected" style="cursor: pointer" :aria-pressed="selected">
+  <button @click.prevent="select" style="cursor: pointer" :aria-pressed="selected">
     <select-tag :active="selected">
       {{ ingrediente }}
     </select-tag>
@@ -13,6 +13,17 @@ export default {
   components: {
     SelectTag
   },
+  methods: {
+    select() {
+      this.selected = !this.selected;
+
+      this.$emit(this.selected ? 'ingredienteSelecionado' : 'ingredienteRemovido', this.ingrediente);
+    }
+  },
+  emits: [
+    'ingredienteSelecionado',
+    'ingredienteRemovido'
+  ],
   data() {
     return {
       selected: false

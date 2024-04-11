@@ -7,6 +7,10 @@ import type Categoria from '@/interfaces/ICategoria';
 
 export default defineComponent({
   name: 'SelecionarIngredientes',
+  emits: [
+    'ingredienteSelecionado',
+    'ingredienteRemovido'
+  ],
   data() {
     return {
       categorias: Array<Categoria>()
@@ -31,7 +35,8 @@ export default defineComponent({
 
     <ul class="categorias">
       <li v-for="categoria in categorias" :key="categoria.nome">
-        <card-categoria :categoria="categoria" />
+        <card-categoria @ingrediente-selecionado="$emit('ingredienteSelecionado', $event)"
+          @ingrediente-removido="$emit('ingredienteRemovido', $event)" :categoria="categoria" />
       </li>
     </ul>
 

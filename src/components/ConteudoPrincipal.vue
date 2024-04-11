@@ -1,13 +1,13 @@
 <script lang="ts">
-import SelecionarIngredientes from '@/components/SelecionarIngredientes.vue';
+import SelecionarIngredientes from './SelecionarIngredientes.vue';
 import SelectTag from './SelectTag.vue';
 
 export default {
   name: 'ConteudoPrincipal',
-  components: { SelecionarIngredientes, SelectTag },
+  components: { SelectTag, SelecionarIngredientes },
   data() {
     return {
-      ingredientes: ['Alho', 'Manteiga', 'Óregano', 'Pão', 'Tomilho', 'Limão']
+      ingredientes: new Set<string>()
     };
   }
 }
@@ -19,8 +19,8 @@ export default {
       <span class="substituto-lg sua-lista-texto">Sua lista:</span>
     </section>
 
-    <ul v-if="ingredientes.length > 0" class="ingredientes-sua-lista">
-      <li v-for="ingrediente in ingredientes" :key="ingrediente">
+    <ul v-if="ingredientes.size > 0" class="ingredientes-sua-lista">
+      <li v-for="ingrediente in ingredientes.values()" :key="ingrediente">
         <select-tag :active="true">{{ ingrediente }}</select-tag>
       </li>
     </ul>
@@ -29,7 +29,8 @@ export default {
       Sua lista está vazia, selecione os ingredientes disponíveis para iniciar.
     </p>
 
-    <selecionar-ingredientes />
+    <selecionar-ingredientes @ingrediente-selecionado="ingredientes.add($event)"
+      @ingrediente-removido="ingredientes.delete($event)" />
   </main>
 </template>
 
