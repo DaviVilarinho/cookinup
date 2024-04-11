@@ -1,8 +1,14 @@
-<script setup lang="ts">
+<script lang="ts">
+import CookinBanner from './components/CookinBanner.vue';
+
+export default {
+  name: "App",
+  components: {
+    CookinBanner
+  }
+}
 </script>
 
 <template>
-  <h1>Meu primeiro projeto Vue!</h1>
+  <cookin-banner></cookin-banner>
 </template>
-
-<style scoped></style>
