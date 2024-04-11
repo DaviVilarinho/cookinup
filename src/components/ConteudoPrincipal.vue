@@ -44,6 +44,7 @@ export default {
       Sua lista está vazia, selecione os ingredientes disponíveis para iniciar.
     </p>
 
+    <!-- alternativa: KeepAlive -->
     <selecionar-ingredientes v-show="pageContent === 'SelecionarIngredientes'"
       @ingrediente-selecionado="ingredientes.add($event)" @ingrediente-removido="ingredientes.delete($event)" />
     <mostrar-receitas v-show="pageContent === 'MostrarReceitas'" :ingredientesAceitos="ingredientes">
