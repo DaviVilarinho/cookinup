@@ -1,7 +1,8 @@
 <script lang="ts">
 import type Categoria from '@/interfaces/ICategoria';
 import type { PropType } from 'vue';
-import SelectTag from './SelectTag.vue';
+import IngredienteSelecionavel from './IngredienteSelecionavel.vue';
+
 export default {
   name: 'CardCategoria',
   props: {
@@ -10,7 +11,7 @@ export default {
       required: true
     },
   },
-  components: { SelectTag }
+  components: { IngredienteSelecionavel }
 }
 </script>
 
@@ -23,7 +24,7 @@ export default {
     </header>
     <ul class="categoria__ingredientes">
       <li v-for="ingrediente in categoria.ingredientes" :key="ingrediente">
-        <select-tag :active="false">{{ ingrediente }}</select-tag>
+        <ingrediente-selecionavel :ingrediente="ingrediente" />
       </li>
     </ul>
   </article>
