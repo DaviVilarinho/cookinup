@@ -17,9 +17,14 @@ export default {
     <header class="categoria__cabecalho">
       <img class="categoria__imagem" :src="`/public/imagens/icones/categorias_ingredientes/${categoria.imagem}`"
         :alt="'Uma ' + categoria.nome">
+      <h2 class="paragrafo-lg categoria__nome">{{ categoria.nome }}</h2>
     </header>
+    <ul class="categoria__ingredientes">
+      <li v-for="ingrediente in categoria.ingredientes" :key="ingrediente">
+        <p>{{ ingrediente }}</p>
+      </li>
+    </ul>
   </article>
-  {{ categoria.nome }}
 </template>
 
 <style scoped>
